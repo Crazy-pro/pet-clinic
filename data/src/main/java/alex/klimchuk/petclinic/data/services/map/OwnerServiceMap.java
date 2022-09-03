@@ -1,14 +1,14 @@
 package main.java.alex.klimchuk.petclinic.data.services.map;
 
 import main.java.alex.klimchuk.petclinic.data.model.Owner;
-import main.java.alex.klimchuk.petclinic.data.services.CrudService;
+import main.java.alex.klimchuk.petclinic.data.services.OwnerService;
 
 import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
-*/
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+ */
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -18,6 +18,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public Owner findByLastName(String name) {
+        return null;
     }
 
     @Override

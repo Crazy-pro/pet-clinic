@@ -1,14 +1,14 @@
 package main.java.alex.klimchuk.petclinic.data.services.map;
 
 import main.java.alex.klimchuk.petclinic.data.model.Vet;
-import main.java.alex.klimchuk.petclinic.data.services.CrudService;
+import main.java.alex.klimchuk.petclinic.data.services.VetService;
 
 import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
-*/
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+ */
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Set<Vet> findAll() {
