@@ -1,4 +1,4 @@
-package main.java.alex.klimchuk.petclinic.data.model;
+package alex.klimchuk.petclinic.data.model;
 
 import lombok.*;
 

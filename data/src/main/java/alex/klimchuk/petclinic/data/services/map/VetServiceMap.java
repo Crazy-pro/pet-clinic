@@ -1,7 +1,7 @@
-package main.java.alex.klimchuk.petclinic.data.services.map;
+package alex.klimchuk.petclinic.data.services.map;
 
-import main.java.alex.klimchuk.petclinic.data.model.Vet;
-import main.java.alex.klimchuk.petclinic.data.services.VetService;
+import alex.klimchuk.petclinic.data.model.Vet;
+import alex.klimchuk.petclinic.data.services.VetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

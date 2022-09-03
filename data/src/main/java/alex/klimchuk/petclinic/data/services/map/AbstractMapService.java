@@ -1,4 +1,4 @@
-package main.java.alex.klimchuk.petclinic.data.services.map;
+package alex.klimchuk.petclinic.data.services.map;
 
 import java.util.HashMap;
 import java.util.HashSet;

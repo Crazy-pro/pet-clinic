@@ -1,4 +1,4 @@
-package main.java.alex.klimchuk.petclinic.web;
+package alex.klimchuk.petclinic.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

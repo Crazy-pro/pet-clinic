@@ -1,7 +1,7 @@
-package main.java.alex.klimchuk.petclinic.data.services.map;
+package alex.klimchuk.petclinic.data.services.map;
 
-import main.java.alex.klimchuk.petclinic.data.model.Owner;
-import main.java.alex.klimchuk.petclinic.data.services.OwnerService;
+import alex.klimchuk.petclinic.data.model.Owner;
+import alex.klimchuk.petclinic.data.services.OwnerService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

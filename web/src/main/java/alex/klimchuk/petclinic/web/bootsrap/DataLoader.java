@@ -1,9 +1,9 @@
-package main.java.alex.klimchuk.petclinic.web.bootsrap;
+package alex.klimchuk.petclinic.web.bootsrap;
 
-import main.java.alex.klimchuk.petclinic.data.model.Owner;
-import main.java.alex.klimchuk.petclinic.data.model.Vet;
-import main.java.alex.klimchuk.petclinic.data.services.*;
-import main.java.alex.klimchuk.petclinic.data.services.map.*;
+import alex.klimchuk.petclinic.data.model.Owner;
+import alex.klimchuk.petclinic.data.model.Vet;
+import alex.klimchuk.petclinic.data.services.*;
+import alex.klimchuk.petclinic.data.services.map.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

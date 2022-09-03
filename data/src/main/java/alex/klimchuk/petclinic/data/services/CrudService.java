@@ -1,4 +1,4 @@
-package main.java.alex.klimchuk.petclinic.data.services;
+package alex.klimchuk.petclinic.data.services;
 
 import java.util.Set;
 
