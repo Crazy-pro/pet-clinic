@@ -1,4 +1,4 @@
-package alex.klimchuk.petclinic.data;
+package main.java.alex.klimchuk.petclinic.data;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

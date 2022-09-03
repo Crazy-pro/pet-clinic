@@ -1,6 +1,6 @@
-package alex.klimchuk.petclinic.data.services;
+package main.java.alex.klimchuk.petclinic.data.services;
 
-import alex.klimchuk.petclinic.data.model.Owner;
+import main.java.alex.klimchuk.petclinic.data.model.Owner;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.

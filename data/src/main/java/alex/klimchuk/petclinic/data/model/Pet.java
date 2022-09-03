@@ -1,4 +1,4 @@
-package alex.klimchuk.petclinic.data.model;
+package main.java.alex.klimchuk.petclinic.data.model;
 
 import lombok.*;
 //import org.springframework.format.annotation.DateTimeFormat;

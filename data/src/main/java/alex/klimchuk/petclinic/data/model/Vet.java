@@ -1,4 +1,4 @@
-package alex.klimchuk.petclinic.data.model;
+package main.java.alex.klimchuk.petclinic.data.model;
 
 import lombok.*;
 
@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Data
 @Entity
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "vets")
 public class Vet extends Person {
