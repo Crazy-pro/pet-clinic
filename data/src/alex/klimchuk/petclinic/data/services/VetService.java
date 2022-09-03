@@ -2,14 +2,10 @@ package alex.klimchuk.petclinic.data.services;
 
 import alex.klimchuk.petclinic.data.model.Vet;
 
-import java.util.Set;
+/**
+ * Copyright Alex Klimchuk (c) 2022.
+ */
 
-public interface VetService {
-
-    Vet findById(Long id);
-
-    Set<Vet> findAll();
-
-    Vet save(Vet vet);
+public interface VetService extends CrudService<Vet, Long> {
 
 }
