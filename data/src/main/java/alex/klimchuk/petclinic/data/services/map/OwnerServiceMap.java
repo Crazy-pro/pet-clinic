@@ -2,12 +2,14 @@ package main.java.alex.klimchuk.petclinic.data.services.map;
 
 import main.java.alex.klimchuk.petclinic.data.model.Owner;
 import main.java.alex.klimchuk.petclinic.data.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override

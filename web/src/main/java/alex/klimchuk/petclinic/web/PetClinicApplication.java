@@ -1,4 +1,4 @@
-package main.java.alex.klimchuk.petclinic.data;
+package main.java.alex.klimchuk.petclinic.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Copyright Alex Klimchuk (c) 2022.
 */
 @SpringBootApplication
-public class PetClinicDataApplication {
+public class PetClinicApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PetClinicDataApplication.class, args);
+        SpringApplication.run(PetClinicApplication.class, args);
     }
 
 }
