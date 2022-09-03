@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-public class IndexController {
+@RequestMapping("/pets/")
+public class PetController {
 
-    @RequestMapping({"", "/", "index", "index.html"})
-    public String index() {
-        return "index.html";
+    @RequestMapping({"index", "index.html"})
+    public String listPets() {
+        return "pets/index.html";
     }
 
 }
