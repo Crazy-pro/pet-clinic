@@ -12,7 +12,7 @@ public class PetController {
 
     @RequestMapping({"index", "index.html"})
     public String listPets() {
-        return "pets/index.html";
+        return "pets/index";
     }
 
 }
