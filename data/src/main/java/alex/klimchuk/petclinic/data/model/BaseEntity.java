@@ -7,8 +7,7 @@ import java.io.Serializable;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 @Data
 @MappedSuperclass
 @NoArgsConstructor

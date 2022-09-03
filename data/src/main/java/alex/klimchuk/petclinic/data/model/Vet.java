@@ -8,8 +8,7 @@ import javax.persistence.*;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 @Data
 @Entity
 @Builder

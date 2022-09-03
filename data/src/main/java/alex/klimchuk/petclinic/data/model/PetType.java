@@ -8,8 +8,7 @@ import javax.persistence.Table;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 @Data
 @Entity
 @NoArgsConstructor

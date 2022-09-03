@@ -8,8 +8,7 @@ import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 @Data
 @Entity
 @NoArgsConstructor

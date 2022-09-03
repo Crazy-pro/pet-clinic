@@ -10,8 +10,7 @@ import java.time.LocalDate;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 @Data
 @Entity
 @NoArgsConstructor

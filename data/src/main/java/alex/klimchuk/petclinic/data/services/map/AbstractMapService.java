@@ -7,8 +7,7 @@ import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 public abstract class AbstractMapService<T, ID> {
 
     protected Map<ID, T> map = new HashMap<>();

@@ -5,8 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 @SpringBootApplication
 public class PetClinicWebApplication {
 

@@ -7,8 +7,7 @@ import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
 
     @Override

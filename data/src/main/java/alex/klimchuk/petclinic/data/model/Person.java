@@ -7,8 +7,7 @@ import javax.persistence.MappedSuperclass;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 @Data
 @MappedSuperclass
 @NoArgsConstructor

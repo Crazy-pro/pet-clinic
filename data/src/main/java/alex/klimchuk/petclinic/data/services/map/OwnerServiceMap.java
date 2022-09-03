@@ -7,8 +7,7 @@ import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
 
     @Override

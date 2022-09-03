@@ -5,8 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
- */
-
+*/
 @Controller
 @RequestMapping("/pets/")
 public class PetController {
