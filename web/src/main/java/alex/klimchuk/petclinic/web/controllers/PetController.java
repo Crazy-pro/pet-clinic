@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/pets/")
 public class PetController {
 
-    @RequestMapping({"index", "index.html"})
+    @RequestMapping({"petsList", "petsList.html"})
     public String listPets() {
-        return "pets/index";
+        return "pets/petsList";
     }
 
 }

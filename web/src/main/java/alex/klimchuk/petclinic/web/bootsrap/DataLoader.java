@@ -3,7 +3,6 @@ package alex.klimchuk.petclinic.web.bootsrap;
 import alex.klimchuk.petclinic.data.model.Owner;
 import alex.klimchuk.petclinic.data.model.Vet;
 import alex.klimchuk.petclinic.data.services.*;
-import alex.klimchuk.petclinic.data.services.map.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

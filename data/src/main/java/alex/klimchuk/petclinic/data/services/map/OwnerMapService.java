@@ -10,7 +10,7 @@ import java.util.Set;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
