@@ -1,6 +1,7 @@
 package alex.klimchuk.petclinic.web.bootsrap;
 
 import alex.klimchuk.petclinic.data.model.Owner;
+import alex.klimchuk.petclinic.data.model.PetType;
 import alex.klimchuk.petclinic.data.model.Vet;
 import alex.klimchuk.petclinic.data.services.*;
 import org.springframework.boot.CommandLineRunner;
@@ -14,14 +15,27 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType savedCatPetType = petTypeService.save(cat);
+
+        System.out.println("PetTypes loaded!");
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Alex");
         owner1.setLastName("Born");
