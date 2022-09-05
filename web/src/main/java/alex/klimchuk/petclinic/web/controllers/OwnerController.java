@@ -3,7 +3,7 @@ package alex.klimchuk.petclinic.web.controllers;
 import alex.klimchuk.petclinic.data.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
@@ -18,7 +18,7 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
-    @RequestMapping({"/", "/ownersList", "/ownersList.html"})
+    @GetMapping
     public String listOwners(Model model) {
         model.addAttribute("owners", ownerService.findAll());
         return "owners/ownersList";
