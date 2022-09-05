@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.LocalDate;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
@@ -14,11 +13,9 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "visits")
-public class Visit extends BaseEntity {
+@Table(name = "specialities")
+public class Speciality extends BaseEntity {
 
-    private LocalDate date;
     private String description;
-    private Pet pet;
 
 }
