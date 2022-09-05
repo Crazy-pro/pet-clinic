@@ -10,13 +10,13 @@ import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
-*/
+ */
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "pets")
-public class Pet extends BaseEntity{
+public class Pet extends BaseEntity {
 
     @Column(name = "name")
     private String name;
@@ -44,7 +44,7 @@ public class Pet extends BaseEntity{
         this.owner = owner;
         this.birthDate = birthDate;
 
-        if (visits == null || visits.size() > 0 ) {
+        if (visits == null || visits.size() > 0) {
             this.visits = visits;
         }
     }
