@@ -1,0 +1,6 @@
+alex\klimchuk\petclinic\web\bootsrap\DataLoader.class
+alex\klimchuk\petclinic\web\controllers\IndexController.class
+alex\klimchuk\petclinic\web\controllers\PetController.class
+alex\klimchuk\petclinic\web\controllers\VetController.class
+alex\klimchuk\petclinic\web\controllers\OwnerController.class
+alex\klimchuk\petclinic\web\PetClinicApplication.class

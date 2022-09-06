@@ -1,0 +1,5 @@
+alex\klimchuk\petclinic\data\model\Vet.class
+alex\klimchuk\petclinic\data\services\PetService.class
+alex\klimchuk\petclinic\data\model\Vet$VetBuilder.class
+alex\klimchuk\petclinic\data\services\map\PetServiceMap.class
+alex\klimchuk\petclinic\data\services\map\OwnerMapService.class
