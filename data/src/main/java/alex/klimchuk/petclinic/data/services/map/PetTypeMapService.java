@@ -1,7 +1,8 @@
 package alex.klimchuk.petclinic.data.services.map;
 
-import alex.klimchuk.petclinic.data.model.PetType;
-import alex.klimchuk.petclinic.data.services.PetTypeService;
+import alex.klimchuk.petclinic.data.model.*;
+import alex.klimchuk.petclinic.data.services.*;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Service
+@Profile({"default", "map"})
 public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
 
     @Override

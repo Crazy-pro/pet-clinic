@@ -1,10 +1,8 @@
 package alex.klimchuk.petclinic.data.services.map;
 
-import alex.klimchuk.petclinic.data.model.Owner;
-import alex.klimchuk.petclinic.data.model.Pet;
-import alex.klimchuk.petclinic.data.services.OwnerService;
-import alex.klimchuk.petclinic.data.services.PetService;
-import alex.klimchuk.petclinic.data.services.PetTypeService;
+import alex.klimchuk.petclinic.data.model.*;
+import alex.klimchuk.petclinic.data.services.*;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -13,6 +11,7 @@ import java.util.Set;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
@@ -35,7 +34,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String name) {
-        return null;
+        return findByLastName(name);
     }
 
     @Override
