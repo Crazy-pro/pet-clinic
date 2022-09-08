@@ -1,7 +1,7 @@
-package alex.klimchuk.petclinic.data.services.springdatajpa;
+package alex.klimchuk.petclinic.data.services.impl;
 
 import alex.klimchuk.petclinic.data.model.Vet;
-import alex.klimchuk.petclinic.data.repositories.*;
+import alex.klimchuk.petclinic.data.repositories.VetRepository;
 import alex.klimchuk.petclinic.data.services.VetService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -13,12 +13,12 @@ import java.util.Set;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Service
-@Profile("springdatajpa")
-public class VetSDJpaService implements VetService {
+@Profile("impl")
+public class VetServiceImpl implements VetService {
 
     private final VetRepository vetRepository;
 
-    public VetSDJpaService(VetRepository vetRepository) {
+    public VetServiceImpl(VetRepository vetRepository) {
         this.vetRepository = vetRepository;
     }
 

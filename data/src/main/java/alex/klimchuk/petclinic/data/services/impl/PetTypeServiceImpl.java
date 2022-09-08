@@ -1,4 +1,4 @@
-package alex.klimchuk.petclinic.data.services.springdatajpa;
+package alex.klimchuk.petclinic.data.services.impl;
 
 import alex.klimchuk.petclinic.data.model.PetType;
 import alex.klimchuk.petclinic.data.repositories.PetTypeRepository;
@@ -13,12 +13,12 @@ import java.util.Set;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Service
-@Profile("springdatajpa")
-public class PetTypeSDJpaService implements PetTypeService {
+@Profile("impl")
+public class PetTypeServiceImpl implements PetTypeService {
 
     private final PetTypeRepository petTypeRepository;
 
-    public PetTypeSDJpaService(PetTypeRepository petTypeRepository) {
+    public PetTypeServiceImpl(PetTypeRepository petTypeRepository) {
         this.petTypeRepository = petTypeRepository;
     }
 

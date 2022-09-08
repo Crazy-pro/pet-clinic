@@ -1,4 +1,4 @@
-package alex.klimchuk.petclinic.data.services.springdatajpa;
+package alex.klimchuk.petclinic.data.services.impl;
 
 import alex.klimchuk.petclinic.data.model.Speciality;
 import alex.klimchuk.petclinic.data.repositories.SpecialityRepository;
@@ -13,20 +13,20 @@ import java.util.Set;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Service
-@Profile("springdatajpa")
-public class SpecialitySDJpaService implements SpecialityService {
+@Profile("impl")
+public class SpecialityServiceImpl implements SpecialityService {
 
     private final SpecialityRepository specialityRepository;
 
-    public SpecialitySDJpaService(SpecialityRepository specialityRepository) {
+    public SpecialityServiceImpl(SpecialityRepository specialityRepository) {
         this.specialityRepository = specialityRepository;
     }
 
     @Override
     public Set<Speciality> findAll() {
-        Set<Speciality> specialitys = new HashSet<>();
-        specialityRepository.findAll().forEach(specialitys::add);
-        return specialitys;
+        Set<Speciality> specialities = new HashSet<>();
+        specialityRepository.findAll().forEach(specialities::add);
+        return specialities;
     }
 
     @Override

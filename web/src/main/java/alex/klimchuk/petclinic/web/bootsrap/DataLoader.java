@@ -4,6 +4,7 @@ import alex.klimchuk.petclinic.data.model.*;
 import alex.klimchuk.petclinic.data.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
@@ -29,6 +30,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
 
         int count = petTypeService.findAll().size();

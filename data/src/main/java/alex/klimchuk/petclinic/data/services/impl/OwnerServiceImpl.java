@@ -1,7 +1,7 @@
-package alex.klimchuk.petclinic.data.services.springdatajpa;
+package alex.klimchuk.petclinic.data.services.impl;
 
 import alex.klimchuk.petclinic.data.model.Owner;
-import alex.klimchuk.petclinic.data.repositories.*;
+import alex.klimchuk.petclinic.data.repositories.OwnerRepository;
 import alex.klimchuk.petclinic.data.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -13,18 +13,13 @@ import java.util.Set;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Service
-@Profile("springdatajpa")
-public class OwnerSDJpaService implements OwnerService {
+@Profile("impl")
+public class OwnerServiceImpl implements OwnerService {
 
     private final OwnerRepository ownerRepository;
-    private final PetRepository petRepository;
-    private final PetTypeRepository petTypeRepository;
 
-    public OwnerSDJpaService(OwnerRepository ownerRepository, PetRepository petRepository,
-                             PetTypeRepository petTypeRepository) {
+    public OwnerServiceImpl(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
-        this.petRepository = petRepository;
-        this.petTypeRepository = petTypeRepository;
     }
 
     @Override
@@ -40,8 +35,8 @@ public class OwnerSDJpaService implements OwnerService {
     }
 
     @Override
-    public Owner findByLastName(String name) {
-        return ownerRepository.findByLastName(name);
+    public Owner findByLastName(String lastName) {
+        return ownerRepository.findByLastName(lastName);
     }
 
     @Override
