@@ -1,6 +1,9 @@
 package alex.klimchuk.petclinic.data.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -25,5 +28,9 @@ public class Visit extends BaseEntity {
     @ManyToOne()
     @JoinColumn(name = "pet_id")
     private Pet pet;
+
+    public LocalDate getDate() {
+        return date;
+    }
 
 }

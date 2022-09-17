@@ -1,13 +1,15 @@
 package alex.klimchuk.petclinic.data.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
-*/
+ */
 @Data
 @MappedSuperclass
 @NoArgsConstructor

@@ -1,6 +1,8 @@
 package alex.klimchuk.petclinic.data.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -8,7 +10,7 @@ import java.util.Set;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
-*/
+ */
 @Data
 @Entity
 @NoArgsConstructor
@@ -27,29 +29,17 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
-    /**
-     * Return the Pet with the given name, or null if none found for this Owner.
-     *
-     * @param name to test
-     * @return true if pet name is already in use
-     */
     public Pet getPet(String name) {
         return getPet(name, false);
     }
 
-    /**
-     * Return the Pet with the given name, or null if none found for this Owner.
-     *
-     * @param name to test
-     * @return true if pet name is already in use
-     */
     public Pet getPet(String name, boolean ignoreNew) {
         name = name.toLowerCase();
         for (Pet pet : pets) {
             if (!ignoreNew || !pet.isNew()) {
-                String compName = pet.getName();
-                compName = compName.toLowerCase();
-                if (compName.equals(name)) {
+                String comparingName = pet.getName();
+                comparingName = comparingName.toLowerCase();
+                if (comparingName.equals(name)) {
                     return pet;
                 }
             }

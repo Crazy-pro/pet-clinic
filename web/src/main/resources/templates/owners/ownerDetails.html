@@ -1,3 +1,7 @@
+<!--~
+  ~ Copyright Alex Klimchuk (c) 2022.
+  -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
@@ -40,13 +44,16 @@
       <tr th:each="pet : ${owner.pets}">
         <td valign="top">
           <dl class="dl-horizontal">
-            <dt>Name</dt>
-            <dd th:text="${pet.name}"/></dd>
-            <dt>Birth Date</dt>
-            <dd
-              th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"/></dd>
-            <dt>Type</dt>
-            <dd th:text="${pet.petType}"/></dd>
+              <dt>Name</dt>
+              <dd th:text="${pet.name}"/>
+              </dd>
+              <dt>Birth Date</dt>
+              <dd
+                      th:text="${#temporals.format(pet.birthDate, 'dd-MM-yyyy')}"/>
+              </dd>
+              <dt>Type</dt>
+              <dd th:text="${pet.petType}"/>
+              </dd>
           </dl>
         </td>
         <td valign="top">
@@ -58,7 +65,7 @@
               </tr>
             </thead>
             <tr th:each="visit : ${pet.visits}">
-              <td th:text="${#temporals.format(visit.date, 'yyyy-MM-dd')}"></td>
+                <td th:text="${#temporals.format(visit.date, 'dd-MM-yyyy')}"></td>
               <td th:text="${visit?.description}"></td>
             </tr>
             <tr>
