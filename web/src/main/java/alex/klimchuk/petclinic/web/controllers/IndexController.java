@@ -13,12 +13,12 @@ public class IndexController {
 
     @RequestMapping({"", "/", "index", "index.html"})
     public ModelAndView mainPageHandler() {
-        return new ModelAndView("index");
+        return new ModelAndView("/homePage");
     }
 
-    @GetMapping("/oups")
+    @GetMapping("/error")
     public ModelAndView errorPageHandler() {
-        return new ModelAndView("errorPage");
+        return new ModelAndView("/errorPage");
     }
 
 }

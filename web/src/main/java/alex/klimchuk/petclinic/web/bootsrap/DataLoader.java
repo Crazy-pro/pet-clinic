@@ -31,7 +31,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     @Transactional
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         int count = petTypeService.findAll().size();
 
@@ -41,7 +41,6 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
-
         PetType dog = new PetType();
         dog.setName("Dog");
         PetType savedDogPetType = petTypeService.save(dog);
@@ -68,7 +67,7 @@ public class DataLoader implements CommandLineRunner {
         owner1.setFirstName("Alex");
         owner1.setLastName("Born");
         owner1.setAddress("21 Jump Street");
-        owner1.setCity("San Francisko");
+        owner1.setCity("San Francisco");
         owner1.setTelephone("+42222222997845");
 
         Pet annsCat = new Pet();
@@ -96,6 +95,8 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
 
+        System.out.println("Pets loaded!");
+
         System.out.println("Owners loaded!");
 
         Visit catVisit = new Visit();
@@ -122,8 +123,6 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Vets loaded!");
-
-        System.out.println("Pets loaded!");
     }
 
 }

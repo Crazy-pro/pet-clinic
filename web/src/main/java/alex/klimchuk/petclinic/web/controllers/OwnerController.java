@@ -30,13 +30,14 @@ public class OwnerController {
         webDataBinder.setDisallowedFields("id");
     }
 
-    @GetMapping("/find")
-    public ModelAndView findOwners() {
-        return new ModelAndView("/owners/findOwners");
+    @GetMapping("/all")
+    public String findAll(Model model) {
+        model.addAttribute("owner", Owner.builder().build());
+        return "/owners/findOwners";
     }
 
     @GetMapping("/{ownerId}")
-    public ModelAndView findOwner(@PathVariable Long ownerId) {
+    public ModelAndView findById(@PathVariable Long ownerId) {
         ModelAndView modelAndView = new ModelAndView("/owners/ownerDetails");
         modelAndView.addObject(ownerService.findById(ownerId));
         return modelAndView;
@@ -48,12 +49,12 @@ public class OwnerController {
             owner.setLastName("");
         }
 
-        List<Owner> results = this.ownerService.findAllByLastNameLike("%" + owner.getLastName() + "%");
+        List<Owner> results = ownerService.findAllByLastNameLike("%" + owner.getLastName() + "%");
         if (results.isEmpty()) {
             result.rejectValue("lastName", "notFound", "not found");
             return "/owners/findOwners";
         } else if (results.size() == 1) {
-            owner = (Owner)results.get(0);
+            owner = results.get(0);
             return "redirect:/owners/" + owner.getId();
         } else {
             model.addAttribute("selections", results);
@@ -72,14 +73,14 @@ public class OwnerController {
         if (result.hasErrors()) {
             return "/owners/saveOwnerForm";
         } else {
-            Owner savedOwner = (Owner)this.ownerService.save(owner);
+            Owner savedOwner = ownerService.save(owner);
             return "redirect:/owners/" + savedOwner.getId();
         }
     }
 
     @GetMapping({"/{ownerId}/edit"})
     public String initUpdateOwnerForm(@PathVariable Long ownerId, Model model) {
-        model.addAttribute(this.ownerService.findById(ownerId));
+        model.addAttribute(ownerService.findById(ownerId));
         return "/owners/saveOwnerForm";
     }
 
@@ -89,7 +90,7 @@ public class OwnerController {
             return "/owners/saveOwnerForm";
         } else {
             owner.setId(ownerId);
-            Owner savedOwner = (Owner)this.ownerService.save(owner);
+            Owner savedOwner = ownerService.save(owner);
             return "redirect:/owners/" + savedOwner.getId();
         }
     }

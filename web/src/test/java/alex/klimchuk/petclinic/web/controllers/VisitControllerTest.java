@@ -38,10 +38,10 @@ public class VisitControllerTest {
     private static final String YET_ANOTHER_VISIT_DESCRIPTION = "yet another visit";
 
     @Mock
-    PetService petService;
+    private PetService petService;
 
     @InjectMocks
-    VisitController visitController;
+    private VisitController visitController;
 
     private MockMvc mockMvc;
 
@@ -50,7 +50,7 @@ public class VisitControllerTest {
     private URI visitsUri;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         Long petId = 1L;
         Long ownerId = 1L;
         when(petService.findById(anyLong()))
@@ -80,7 +80,7 @@ public class VisitControllerTest {
     }
 
     @Test
-    void initNewVisitForm() throws Exception {
+    public void initNewVisitForm() throws Exception {
         mockMvc.perform(get(visitsUri))
                 .andExpect(status().isOk())
                 .andExpect(view().name("pets/saveVisitForm"));
@@ -88,7 +88,7 @@ public class VisitControllerTest {
 
 
     @Test
-    void processNewVisitForm() throws Exception {
+    public void processNewVisitForm() throws Exception {
         mockMvc.perform(post(visitsUri)
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("date", "2018-11-11")

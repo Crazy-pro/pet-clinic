@@ -33,25 +33,26 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class PetControllerTest {
 
     @Mock
-    PetService petService;
+    private PetService petService;
 
     @Mock
-    OwnerService ownerService;
+    private OwnerService ownerService;
 
     @Mock
-    PetTypeService petTypeService;
+    private PetTypeService petTypeService;
 
     @InjectMocks
-    PetController petController;
+    private PetController petController;
 
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-    Owner owner;
-    Set<PetType> petTypes;
+    private Owner owner;
+
+    private Set<PetType> petTypes;
 
     @BeforeEach
-    void setUp() {
-        owner = Owner.builder().id(1l).build();
+    public void setUp() {
+        owner = Owner.builder().id(1L).build();
 
         petTypes = new HashSet<>();
         petTypes.add(PetType.builder().id(1L).name("Dog").build());
@@ -63,7 +64,7 @@ public class PetControllerTest {
     }
 
     @Test
-    void initCreationForm() throws Exception {
+    public void initCreationForm() throws Exception {
         when(ownerService.findById(anyLong())).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
 
@@ -75,7 +76,7 @@ public class PetControllerTest {
     }
 
     @Test
-    void processCreationForm() throws Exception {
+    public void processCreationForm() throws Exception {
         when(ownerService.findById(anyLong())).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
 
@@ -87,7 +88,7 @@ public class PetControllerTest {
     }
 
     @Test
-    void initUpdateForm() throws Exception {
+    public void initUpdateForm() throws Exception {
         when(ownerService.findById(anyLong())).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
         when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).build());
@@ -100,7 +101,7 @@ public class PetControllerTest {
     }
 
     @Test
-    void processUpdateForm() throws Exception {
+    public void processUpdateForm() throws Exception {
         when(ownerService.findById(anyLong())).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
 
@@ -112,17 +113,17 @@ public class PetControllerTest {
     }
 
     @Test
-    void populatePetTypes() {
+    public void populatePetTypes() {
         //todo impl
     }
 
     @Test
-    void findOwner() {
+    public void findOwner() {
         //todo impl
     }
 
     @Test
-    void initOwnerBinder() {
+    public void initOwnerBinder() {
         //todo impl
     }
 

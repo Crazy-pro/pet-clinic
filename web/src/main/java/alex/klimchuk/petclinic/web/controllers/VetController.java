@@ -4,7 +4,9 @@ import alex.klimchuk.petclinic.data.model.Vet;
 import alex.klimchuk.petclinic.data.services.VetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Set;
 
@@ -22,14 +24,14 @@ public class VetController {
     }
 
     @GetMapping
-    public String findVets(Model model) {
+    public String findAll(Model model) {
         model.addAttribute("vets", vetService.findAll());
         return "/vets/vetsList";
     }
 
     @ResponseBody
     @GetMapping({"/json"})
-    public Set<Vet> getVetsInJson() {
+    public Set<Vet> getAllInJson() {
         return vetService.findAll();
     }
 

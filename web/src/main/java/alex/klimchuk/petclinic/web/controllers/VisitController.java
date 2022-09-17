@@ -19,6 +19,7 @@ import java.util.Map;
  */
 @Controller
 public class VisitController {
+
     private final VisitService visitService;
     private final PetService petService;
 
@@ -28,11 +29,13 @@ public class VisitController {
     }
 
     @InitBinder
-    public void dataBinder(WebDataBinder dataBinder) {
-        dataBinder.setDisallowedFields(new String[]{"id"});
-        dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+    public void dataBinder(WebDataBinder webDataBinder) {
+        webDataBinder.setDisallowedFields("id");
+
+        webDataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+            @Override
             public void setAsText(String text) throws IllegalArgumentException {
-                this.setValue(LocalDate.parse(text));
+                setValue(LocalDate.parse(text));
             }
         });
     }
@@ -57,9 +60,9 @@ public class VisitController {
         if (result.hasErrors()) {
             return "/pets/saveVisitForm";
         } else {
-            this.visitService.save(visit);
+            visitService.save(visit);
             return "redirect:/owners/{ownerId}";
         }
     }
-    
+
 }

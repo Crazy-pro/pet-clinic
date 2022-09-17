@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Locale;
 
 /**
@@ -22,24 +21,22 @@ public class PetTypeFormatter implements Formatter<PetType> {
         this.petTypeService = petTypeService;
     }
 
+    @Override
     public String print(PetType petType, Locale locale) {
         return petType.getName();
     }
 
+    @Override
     public PetType parse(String text, Locale locale) throws ParseException {
-        Collection<PetType> findPetTypes = this.petTypeService.findAll();
-        Iterator<PetType> var4 = findPetTypes.iterator();
+        Collection<PetType> petTypes = petTypeService.findAll();
 
-        PetType type;
-        do {
-            if (!var4.hasNext()) {
-                throw new ParseException("Type not found: " + text, 0);
+        for (PetType type : petTypes) {
+            if (type.getName().equals(text)) {
+                return type;
             }
+        }
 
-            type = var4.next();
-        } while (!type.getName().equals(text));
-
-        return type;
+        throw new ParseException("Type not found: " + text, 0);
     }
 
 }

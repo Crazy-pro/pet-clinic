@@ -34,9 +34,9 @@ public class PetController {
         this.petTypeService = petTypeService;
     }
 
-    @ModelAttribute("types")
-    public Collection<PetType> populatePetTypes() {
-        return petTypeService.findAll();
+    @InitBinder({"owner"})
+    public void initOwnerBinder(WebDataBinder webDataBinder) {
+        webDataBinder.setDisallowedFields("id");
     }
 
     @ModelAttribute("owner")
@@ -44,9 +44,9 @@ public class PetController {
         return ownerService.findById(ownerId);
     }
 
-    @InitBinder({"owner"})
-    public void initOwnerBinder(WebDataBinder dataBinder) {
-        dataBinder.setDisallowedFields(new String[]{"id"});
+    @ModelAttribute("types")
+    public Collection<PetType> populatePetTypes() {
+        return petTypeService.findAll();
     }
 
     @GetMapping({"/pets/new"})
@@ -69,14 +69,14 @@ public class PetController {
             model.put("pet", pet);
             return "/pets/savePetForm";
         } else {
-            this.petService.save(pet);
+            petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }
     }
 
     @GetMapping({"/pets/{petId}/edit"})
     public String initUpdateForm(@PathVariable Long petId, Model model) {
-        model.addAttribute("pet", this.petService.findById(petId));
+        model.addAttribute("pet", petService.findById(petId));
         return "/pets/savePetForm";
     }
 
@@ -88,9 +88,9 @@ public class PetController {
             return "/pets/savePetForm";
         } else {
             owner.getPets().add(pet);
-            this.petService.save(pet);
+            petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }
     }
-    
+
 }
