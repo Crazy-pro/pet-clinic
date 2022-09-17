@@ -1,7 +1,7 @@
 package alex.klimchuk.petclinic.data.services.map;
 
-import alex.klimchuk.petclinic.data.model.*;
-import alex.klimchuk.petclinic.data.services.*;
+import alex.klimchuk.petclinic.data.model.Visit;
+import alex.klimchuk.petclinic.data.services.VisitService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +28,7 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     public Visit save(Visit visit) {
         if (visit.getPet() == null || visit.getPet().getOwner() == null || visit.getPet().getId() == null
                 || visit.getPet().getOwner().getId() == null) {
-            throw new RuntimeException("Invalid Visit!");
+            throw new NullPointerException("Fields cannot be null. Invalid Visit!");
         }
         return super.save(visit);
     }

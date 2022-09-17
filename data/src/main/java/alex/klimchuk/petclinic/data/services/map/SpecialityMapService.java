@@ -1,7 +1,7 @@
 package alex.klimchuk.petclinic.data.services.map;
 
-import alex.klimchuk.petclinic.data.model.*;
-import alex.klimchuk.petclinic.data.services.*;
+import alex.klimchuk.petclinic.data.model.Speciality;
+import alex.klimchuk.petclinic.data.services.SpecialityService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class SpecialityMapService extends AbstractMapService<Speciality, Long> i
 
     @Override
     public Speciality save(Speciality speciality) {
-            return super.save(speciality);
+        return super.save(speciality);
     }
 
     @Override

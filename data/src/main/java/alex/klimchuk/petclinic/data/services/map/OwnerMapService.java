@@ -1,7 +1,10 @@
 package alex.klimchuk.petclinic.data.services.map;
 
-import alex.klimchuk.petclinic.data.model.*;
-import alex.klimchuk.petclinic.data.services.*;
+import alex.klimchuk.petclinic.data.model.Owner;
+import alex.klimchuk.petclinic.data.model.Pet;
+import alex.klimchuk.petclinic.data.services.OwnerService;
+import alex.klimchuk.petclinic.data.services.PetService;
+import alex.klimchuk.petclinic.data.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -61,7 +64,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
                             pet.setPetType(petTypeService.save(pet.getPetType()));
                         }
                     } else {
-                        throw new RuntimeException("Pet Type is required!");
+                        throw new NullPointerException("Pet Type is required!");
                     }
                     if (pet.getId() == null) {
                         Pet savedPet = petService.save(pet);
