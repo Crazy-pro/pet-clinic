@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Copyright Alex Klimchuk (c) 2022.
-*/
+ */
 @SpringBootApplication
 @ComponentScan({"alex.klimchuk.petclinic.web", "alex.klimchuk.petclinic.data"})
 public class PetClinicApplication {
