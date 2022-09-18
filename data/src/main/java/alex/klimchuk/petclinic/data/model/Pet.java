@@ -1,9 +1,6 @@
 package alex.klimchuk.petclinic.data.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -14,7 +11,8 @@ import java.util.Set;
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

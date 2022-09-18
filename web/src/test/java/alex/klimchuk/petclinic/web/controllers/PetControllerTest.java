@@ -46,39 +46,37 @@ public class PetControllerTest {
 
     private MockMvc mockMvc;
 
-    private Owner owner;
+    private Owner ownerMock;
 
-    private Set<PetType> petTypes;
+    private Set<PetType> petTypesMock;
 
     @BeforeEach
     public void setUp() {
-        owner = Owner.builder().id(1L).build();
+        ownerMock = Owner.builder().id(1L).build();
 
-        petTypes = new HashSet<>();
-        petTypes.add(PetType.builder().id(1L).name("Dog").build());
-        petTypes.add(PetType.builder().id(2L).name("Cat").build());
+        petTypesMock = new HashSet<>();
+        petTypesMock.add(PetType.builder().id(1L).name("Dog").build());
+        petTypesMock.add(PetType.builder().id(2L).name("Cat").build());
 
-        mockMvc = MockMvcBuilders
-                .standaloneSetup(petController)
-                .build();
+        mockMvc = MockMvcBuilders.standaloneSetup(petController).build();
     }
 
     @Test
-    public void initCreationForm() throws Exception {
-        when(ownerService.findById(anyLong())).thenReturn(owner);
-        when(petTypeService.findAll()).thenReturn(petTypes);
+    public void testInitCreationForm() throws Exception {
+        when(ownerService.findById(anyLong())).thenReturn(ownerMock);
+        when(petTypeService.findAll()).thenReturn(petTypesMock);
 
         mockMvc.perform(get("/owners/1/pets/new"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("owner"))
                 .andExpect(model().attributeExists("pet"))
-                .andExpect(view().name("pets/savePetForm"));
+                .andExpect(view().name("/pets/savePetForm"));
     }
 
     @Test
-    public void processCreationForm() throws Exception {
-        when(ownerService.findById(anyLong())).thenReturn(owner);
-        when(petTypeService.findAll()).thenReturn(petTypes);
+    public void testProcessCreationForm() throws Exception {
+        when(ownerService.findById(anyLong())).thenReturn(ownerMock);
+        when(petTypeService.findAll()).thenReturn(petTypesMock);
 
         mockMvc.perform(post("/owners/1/pets/new"))
                 .andExpect(status().is3xxRedirection())
@@ -88,43 +86,28 @@ public class PetControllerTest {
     }
 
     @Test
-    public void initUpdateForm() throws Exception {
-        when(ownerService.findById(anyLong())).thenReturn(owner);
-        when(petTypeService.findAll()).thenReturn(petTypes);
+    public void testInitUpdateForm() throws Exception {
+        when(ownerService.findById(anyLong())).thenReturn(ownerMock);
+        when(petTypeService.findAll()).thenReturn(petTypesMock);
         when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).build());
 
         mockMvc.perform(get("/owners/1/pets/2/edit"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("owner"))
                 .andExpect(model().attributeExists("pet"))
-                .andExpect(view().name("pets/savePetForm"));
+                .andExpect(view().name("/pets/savePetForm"));
     }
 
     @Test
-    public void processUpdateForm() throws Exception {
-        when(ownerService.findById(anyLong())).thenReturn(owner);
-        when(petTypeService.findAll()).thenReturn(petTypes);
+    public void testProcessUpdateForm() throws Exception {
+        when(ownerService.findById(anyLong())).thenReturn(ownerMock);
+        when(petTypeService.findAll()).thenReturn(petTypesMock);
 
         mockMvc.perform(post("/owners/1/pets/2/edit"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/1"));
 
         verify(petService).save(any());
-    }
-
-    @Test
-    public void populatePetTypes() {
-        //todo impl
-    }
-
-    @Test
-    public void findOwner() {
-        //todo impl
-    }
-
-    @Test
-    public void initOwnerBinder() {
-        //todo impl
     }
 
 }

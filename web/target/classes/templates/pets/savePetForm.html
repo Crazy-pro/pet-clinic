@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'pets')}">
+<html th:replace="~{fragments/layout :: layout (~{::body},'pets')}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Pet Details</title>
@@ -9,7 +9,7 @@
     <th:block th:if="${pet['new']}">New</th:block>
     Pet
 </h2>
-<form th:object="${pet}" class="form-horizontal" method="post">
+<form class="form-horizontal" method="post" th:object="${pet}">
     <input type="hidden" name="id" th:value="*{id}"/>
     <div class="form-group has-feedback">
         <div class="form-group">
@@ -24,8 +24,8 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button th:with="text=${pet['new']} ? 'Add Pet' : 'Update Pet'"
-                    class="btn btn-default" type="submit" th:text="${text}">
+            <button class="btn btn-default"
+                    th:text="${text}" th:with="text=${pet['new']} ? 'Add Pet' : 'Update Pet'" type="submit">
                 Add Pet
             </button>
         </div>

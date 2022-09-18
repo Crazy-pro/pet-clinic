@@ -1,9 +1,6 @@
 package alex.klimchuk.petclinic.data.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -12,7 +9,8 @@ import java.util.Set;
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
-@Data
+@Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor

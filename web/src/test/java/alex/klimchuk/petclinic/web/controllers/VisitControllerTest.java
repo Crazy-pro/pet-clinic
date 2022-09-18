@@ -34,11 +34,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(MockitoExtension.class)
 public class VisitControllerTest {
 
-    private static final String REDIRECT_OWNERS_1 = "redirect:/owners/{ownerId}";
-    private static final String YET_ANOTHER_VISIT_DESCRIPTION = "yet another visit";
-
     @Mock
     private PetService petService;
+
+    @Mock
+    private VisitService visitService;
 
     @InjectMocks
     private VisitController visitController;
@@ -80,21 +80,21 @@ public class VisitControllerTest {
     }
 
     @Test
-    public void initNewVisitForm() throws Exception {
+    public void testInitNewVisitForm() throws Exception {
         mockMvc.perform(get(visitsUri))
                 .andExpect(status().isOk())
-                .andExpect(view().name("pets/saveVisitForm"));
+                .andExpect(view().name("/pets/saveVisitForm"));
     }
 
 
     @Test
-    public void processNewVisitForm() throws Exception {
+    public void testProcessNewVisitForm() throws Exception {
         mockMvc.perform(post(visitsUri)
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                        .param("date", "2018-11-11")
-                        .param("description", YET_ANOTHER_VISIT_DESCRIPTION))
+                        .param("date", "11-11-2018")
+                        .param("description", "yet another visit"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(view().name(REDIRECT_OWNERS_1))
+                .andExpect(view().name("redirect:/owners/{ownerId}"))
                 .andExpect(model().attributeExists("visit"));
     }
 
