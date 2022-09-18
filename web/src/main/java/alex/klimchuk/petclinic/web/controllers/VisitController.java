@@ -18,6 +18,7 @@ import java.util.Map;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Controller
+@RequestMapping("/owners")
 public class VisitController {
 
     private final VisitService visitService;
@@ -50,12 +51,12 @@ public class VisitController {
         return visit;
     }
 
-    @GetMapping({"/owners/*/pets/{petId}/visits/new"})
+    @GetMapping({"/*/pets/{petId}/visits/new"})
     public String initNewVisitForm(@PathVariable Long petId, Map<String, Object> model) {
         return "/pets/saveVisitForm";
     }
 
-    @PostMapping({"/owners/{ownerId}/pets/{petId}/visits/new"})
+    @PostMapping({"/{ownerId}/pets/{petId}/visits/new"})
     public String processNewVisitForm(@Valid Visit visit, BindingResult result) {
         if (result.hasErrors()) {
             return "/pets/saveVisitForm";

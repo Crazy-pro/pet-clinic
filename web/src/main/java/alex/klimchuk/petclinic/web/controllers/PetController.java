@@ -21,7 +21,7 @@ import java.util.Collection;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Controller
-@RequestMapping("/owners/{ownerId}")
+@RequestMapping("/owners/{ownerId}/pets")
 public class PetController {
 
     private final PetService petService;
@@ -49,7 +49,7 @@ public class PetController {
         return petTypeService.findAll();
     }
 
-    @GetMapping({"/pets/new"})
+    @GetMapping({"/new"})
     public String initCreationForm(Owner owner, Model model) {
         Pet pet = new Pet();
         owner.getPets().add(pet);
@@ -58,7 +58,7 @@ public class PetController {
         return "/pets/savePetForm";
     }
 
-    @PostMapping({"/pets/new"})
+    @PostMapping({"/new"})
     public String processCreationForm(Owner owner, @Valid Pet pet, BindingResult result, ModelMap model) {
         if (StringUtils.hasLength(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null) {
             result.rejectValue("name", "duplicate", "already exists");
@@ -74,13 +74,13 @@ public class PetController {
         }
     }
 
-    @GetMapping({"/pets/{petId}/edit"})
+    @GetMapping({"/{petId}/edit"})
     public String initUpdateForm(@PathVariable Long petId, Model model) {
         model.addAttribute("pet", petService.findById(petId));
         return "/pets/savePetForm";
     }
 
-    @PostMapping({"/pets/{petId}/edit"})
+    @PostMapping({"/{petId}/edit"})
     public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
         if (result.hasErrors()) {
             pet.setOwner(owner);

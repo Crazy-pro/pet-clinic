@@ -4,7 +4,6 @@ import alex.klimchuk.petclinic.data.model.Owner;
 import alex.klimchuk.petclinic.data.model.Pet;
 import alex.klimchuk.petclinic.data.model.PetType;
 import alex.klimchuk.petclinic.data.services.PetService;
-import alex.klimchuk.petclinic.data.services.VisitService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,9 +35,6 @@ public class VisitControllerTest {
 
     @Mock
     private PetService petService;
-
-    @Mock
-    private VisitService visitService;
 
     @InjectMocks
     private VisitController visitController;
@@ -74,9 +70,7 @@ public class VisitControllerTest {
         uriVariables.put("petId", petId.toString());
         visitsUri = visitsUriTemplate.expand(uriVariables);
 
-        mockMvc = MockMvcBuilders
-                .standaloneSetup(visitController)
-                .build();
+        mockMvc = MockMvcBuilders.standaloneSetup(visitController).build();
     }
 
     @Test
@@ -85,7 +79,6 @@ public class VisitControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("/pets/saveVisitForm"));
     }
-
 
     @Test
     public void testProcessNewVisitForm() throws Exception {
