@@ -3,6 +3,7 @@ package alex.klimchuk.petclinic.data.services.impl;
 import alex.klimchuk.petclinic.data.model.Owner;
 import alex.klimchuk.petclinic.data.repositories.OwnerRepository;
 import alex.klimchuk.petclinic.data.services.OwnerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class OwnerServiceImpl implements OwnerService {
 
     private final OwnerRepository ownerRepository;
 
+    @Autowired
     public OwnerServiceImpl(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
     }

@@ -4,6 +4,7 @@ import alex.klimchuk.petclinic.data.model.Owner;
 import alex.klimchuk.petclinic.data.model.Pet;
 import alex.klimchuk.petclinic.data.model.PetType;
 import alex.klimchuk.petclinic.data.services.PetService;
+import alex.klimchuk.petclinic.data.services.VisitService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -35,6 +36,9 @@ public class VisitControllerTest {
 
     @Mock
     private PetService petService;
+
+    @Mock
+    private VisitService visitService;
 
     @InjectMocks
     private VisitController visitController;
@@ -84,7 +88,7 @@ public class VisitControllerTest {
     public void testProcessNewVisitForm() throws Exception {
         mockMvc.perform(post(visitsUri)
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                        .param("date", "11-11-2018")
+                        .param("date", "2018-11-11")
                         .param("description", "yet another visit"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/{ownerId}"))
