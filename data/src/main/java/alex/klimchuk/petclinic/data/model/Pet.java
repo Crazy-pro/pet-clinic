@@ -31,7 +31,7 @@ public class Pet extends BaseEntity {
     private Owner owner;
 
     @Column(name = "birth_date")
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "DD-MM-YYYY")
     private LocalDate birthDate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
