@@ -52,6 +52,22 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>guru.springframework</groupId>
+            <artifactId>chuck-norris-for-actuator</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sonarsource.sonarlint.core</groupId>
+            <artifactId>sonarlint-core</artifactId>
+            <version>8.9.0.54830</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.9.1.2184</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -59,6 +75,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.7.0.1746</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
