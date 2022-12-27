@@ -1,9 +1,6 @@
 package alex.klimchuk.petclinic.data.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -16,6 +13,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Person extends BaseEntity {
 
     @Column(name = "first_name")
