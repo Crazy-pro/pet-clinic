@@ -2,6 +2,7 @@ package alex.klimchuk.petclinic.web.bootsrap;
 
 import alex.klimchuk.petclinic.data.model.*;
 import alex.klimchuk.petclinic.data.services.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -32,10 +34,9 @@ public class DataLoader implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) {
+        boolean isEmpty = petTypeService.findAll().isEmpty();
 
-        int count = petTypeService.findAll().size();
-
-        if (count == 0) {
+        if (isEmpty) {
             loadData();
         }
     }
@@ -49,7 +50,7 @@ public class DataLoader implements CommandLineRunner {
         cat.setName("Cat");
         PetType savedCatPetType = petTypeService.save(cat);
 
-        System.out.println("PetTypes loaded!");
+        log.info("PetTypes loaded!");
 
         Speciality surgery = new Speciality();
         surgery.setDescription("Surgery");
@@ -63,54 +64,61 @@ public class DataLoader implements CommandLineRunner {
         dentistry.setDescription("Dentistry");
         Speciality savedDentistry = specialityService.save(dentistry);
 
-        Owner owner1 = new Owner();
-        owner1.setFirstName("Alex");
-        owner1.setLastName("Born");
-        owner1.setAddress("21 Jump Street");
-        owner1.setCity("San Francisco");
-        owner1.setTelephone("+42222222997845");
+        Owner owner1 = Owner.builder()
+                .firstName("Alex")
+                .lastName("Born")
+                .address("21 Jump Street")
+                .city("San Francisco")
+                .telephone("+42222222997845")
+                .build();
 
-        Pet annsCat = new Pet();
-        annsCat.setName("Rock");
-        annsCat.setOwner(owner1);
-        annsCat.setPetType(savedCatPetType);
-        annsCat.setBirthDate(LocalDate.now());
+        Pet annsCat = Pet.builder()
+                .name("Rock")
+                .owner(owner1)
+                .petType(savedCatPetType)
+                .birthDate(LocalDate.now())
+                .build();
+
         owner1.getPets().add(annsCat);
 
         ownerService.save(owner1);
 
-        Owner owner2 = new Owner();
-        owner2.setFirstName("Bjorn");
-        owner2.setLastName("Lodbrok");
-        owner2.setAddress("22 Jump Street");
-        owner2.setCity("Boston");
-        owner2.setTelephone("+42375246541245");
+        Owner owner2 = Owner.builder()
+                .firstName("Bjorn")
+                .lastName("Lodbrok")
+                .address("22 Jump Street")
+                .city("Boston")
+                .telephone("+42375246541245")
+                .build();
 
-        Pet alexsDog = new Pet();
-        alexsDog.setName("Rock");
-        alexsDog.setOwner(owner2);
-        alexsDog.setPetType(savedDogPetType);
-        alexsDog.setBirthDate(LocalDate.now());
+        Pet alexsDog = Pet.builder()
+                .name("Rock")
+                .owner(owner2)
+                .petType(savedDogPetType)
+                .birthDate(LocalDate.now())
+                .build();
+
         owner2.getPets().add(alexsDog);
 
         ownerService.save(owner2);
 
-        System.out.println("Pets loaded!");
+        log.info("Pets loaded!");
+        log.info("Owners loaded!");
 
-        System.out.println("Owners loaded!");
-
-        Visit catVisit = new Visit();
-        catVisit.setPet(annsCat);
-        catVisit.setDate(LocalDate.now());
-        catVisit.setDescription("Funny Kitty");
+        Visit catVisit = Visit.builder()
+                .pet(annsCat)
+                .date(LocalDate.now())
+                .description("Funny Kitty")
+                .build();
 
         visitService.save(catVisit);
 
-        System.out.println("Visits loaded!");
+        log.info("Visits loaded!");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Mike");
         vet1.setLastName("Yalovoy");
+
         vet1.getSpecialities().add(savedDentistry);
 
         vetService.save(vet1);
@@ -118,11 +126,13 @@ public class DataLoader implements CommandLineRunner {
         Vet vet2 = new Vet();
         vet2.setFirstName("Stas");
         vet2.setLastName("Commit");
+
         vet2.getSpecialities().add(savedSurgery);
+        vet2.getSpecialities().add(savedRadiology);
 
         vetService.save(vet2);
 
-        System.out.println("Vets loaded!");
+        log.info("Vets loaded!");
     }
 
 }

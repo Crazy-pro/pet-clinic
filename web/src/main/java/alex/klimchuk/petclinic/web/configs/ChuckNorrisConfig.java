@@ -1,4 +1,4 @@
-package alex.klimchuk.petclinic.web.configurations;
+package alex.klimchuk.petclinic.web.configs;
 
 import guru.springframework.norris.chuck.ChuckNorrisInfoContributor;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * Copyright Alex Klimchuk (c) 2022.
  */
 @Configuration
-public class ChuckNorrisConfiguration {
+public class ChuckNorrisConfig {
 
     @Bean
     public ChuckNorrisInfoContributor chuckNorrisInfoContributor() {
