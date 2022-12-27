@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+<html lang="en" th:replace="~{fragments/layout :: layout (~{::body},'owners')}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <title>List of Pet Owners</title>
@@ -24,7 +24,9 @@
         <td th:text="${owner.address}"/>
         <td th:text="${owner.city}"/>
         <td th:text="${owner.telephone}"/>
-        <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td>
+        <td>
+            <span th:each="pet : ${owner.pets}" th:text="${pet.name} "/>
+        </td>
     </tr>
     </tbody>
 </table>

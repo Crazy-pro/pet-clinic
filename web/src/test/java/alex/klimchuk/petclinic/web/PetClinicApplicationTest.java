@@ -13,7 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class PetClinicApplicationTest {
 
     @Test
-    public void contextLoads() {
+    public void testContextLoads() {
 
     }
 
