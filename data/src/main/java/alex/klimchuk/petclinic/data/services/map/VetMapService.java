@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+import static java.util.Objects.isNull;
+
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
@@ -34,16 +36,14 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet vet) {
-
-        if (vet.getSpecialities().size() > 0) {
+        if (!vet.getSpecialities().isEmpty()) {
             vet.getSpecialities().forEach(speciality -> {
-                if (speciality.getId() == null) {
+                if (isNull(speciality.getId())) {
                     Speciality savedSpeciality = specialityService.save(speciality);
                     speciality.setId(savedSpeciality.getId());
                 }
             });
         }
-
         return super.save(vet);
     }
 

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+import static java.util.Objects.isNull;
+
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
@@ -26,8 +28,10 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
 
     @Override
     public Visit save(Visit visit) {
-        if (visit.getPet() == null || visit.getPet().getOwner() == null || visit.getPet().getId() == null
-                || visit.getPet().getOwner().getId() == null) {
+        if (isNull(visit.getPet()) ||
+                isNull(visit.getPet().getId()) ||
+                isNull(visit.getPet().getOwner()) ||
+                isNull(visit.getPet().getOwner().getId())) {
             throw new NullPointerException("Fields cannot be null. Invalid Visit!");
         }
         return super.save(visit);

@@ -8,6 +8,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 
+import static java.util.Objects.isNull;
+
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
@@ -24,7 +26,7 @@ public class BaseEntity implements Serializable {
 
     @Column(name = "is_new")
     public boolean isNew() {
-        return this.id == null;
+        return isNull(this.id);
     }
 
 }

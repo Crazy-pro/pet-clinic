@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 import java.util.List;
 
+import static java.util.Objects.isNull;
+
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
@@ -45,7 +47,7 @@ public class OwnerController {
 
     @GetMapping
     public String processFindForm(Owner owner, BindingResult result, Model model) {
-        if (owner.getLastName() == null) {
+        if (isNull(owner.getLastName())) {
             owner.setLastName("");
         }
 

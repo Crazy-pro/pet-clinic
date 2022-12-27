@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
@@ -56,17 +59,17 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(Owner owner) {
-        if (owner != null) {
-            if (owner.getPets() != null) {
+        if (nonNull(owner)) {
+            if (nonNull(owner.getPets())) {
                 owner.getPets().forEach(pet -> {
-                    if (pet.getPetType() != null) {
-                        if (pet.getPetType().getId() == null) {
+                    if (nonNull(pet.getPetType())) {
+                        if (isNull(pet.getPetType().getId())) {
                             pet.setPetType(petTypeService.save(pet.getPetType()));
                         }
                     } else {
                         throw new NullPointerException("Pet Type is required!");
                     }
-                    if (pet.getId() == null) {
+                    if (isNull(pet.getId())) {
                         Pet savedPet = petService.save(pet);
                         pet.setId(savedPet.getId());
                     }

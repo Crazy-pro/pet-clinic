@@ -4,6 +4,9 @@ import alex.klimchuk.petclinic.data.model.BaseEntity;
 
 import java.util.*;
 
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
@@ -21,8 +24,8 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 
     T save(T object) {
 
-        if (object != null) {
-            if (object.getId() == null) {
+        if (nonNull(object)) {
+            if (isNull(object.getId())) {
                 object.setId(getNextId());
             }
             map.put(object.getId(), object);

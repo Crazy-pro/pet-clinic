@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import static java.util.Objects.nonNull;
+
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
@@ -39,7 +41,7 @@ public class Owner extends Person {
         this.city = city;
         this.telephone = telephone;
 
-        if (pets != null) {
+        if (nonNull(pets)) {
             this.pets = pets;
         }
     }
