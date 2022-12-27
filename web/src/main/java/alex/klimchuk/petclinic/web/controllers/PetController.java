@@ -65,6 +65,7 @@ public class PetController {
         }
 
         owner.getPets().add(pet);
+
         if (result.hasErrors()) {
             model.put("pet", pet);
             return "/pets/savePetForm";

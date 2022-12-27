@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import static java.util.Objects.isNull;
+
 /**
  * Copyright Alex Klimchuk (c) 2022.
  */
@@ -45,7 +47,7 @@ public class Pet extends BaseEntity {
         this.owner = owner;
         this.birthDate = birthDate;
 
-        if (visits == null || visits.size() > 0) {
+        if (isNull(visits) || !visits.isEmpty()) {
             this.visits = visits;
         }
     }
