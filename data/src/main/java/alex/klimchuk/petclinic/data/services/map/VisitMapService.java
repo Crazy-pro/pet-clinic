@@ -29,9 +29,7 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     @Override
     public Visit save(Visit visit) {
         if (isNull(visit.getPet()) ||
-                isNull(visit.getPet().getId()) ||
-                isNull(visit.getPet().getOwner()) ||
-                isNull(visit.getPet().getOwner().getId())) {
+                isNull(visit.getPet().getId())) {
             throw new NullPointerException("Fields cannot be null. Invalid Visit!");
         }
         return super.save(visit);
