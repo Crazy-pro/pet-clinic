@@ -15,10 +15,13 @@ This repository contains a Spring Boot example project using MariaDB Database.
 
 - Programming language: Java 11;
 - Frameworks:
-    - Spring (Boot, Core, Data, Web, Test);
+    - Spring (Boot, Core, Data, WebMVC, Test, Actuator);
     - Hibernate.
 - IDE: IntelliJ IDEA;
-- Database:
-    - MariaDB.
-- Tools: Lombok, Postman, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
+- Databases:
+    - MySQL, MariaDB.
+- Tools: JUnit, Mockito, Lombok, Postman, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
 - Others: GitHub, HTML, CSS, ThymeLeaf.
+
+[![CircleCI](https://app.circleci.com/pipelines/github/Crazy-pro/pet-clinic.svg?style=svg)](https://app.circleci.com/pipelines/github/Crazy-pro/pet-clinic)
+[![CodeCov](https://codecov.io/pipelines/github/Crazy-pro/pet-clinic/branch/master/graph/badge.svg)](https://codecov.io/pipelines/github/Crazy-pro/pet-clinic)
