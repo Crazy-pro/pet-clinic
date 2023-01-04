@@ -1,6 +1,6 @@
 ### Pet Clinic
 
-This repository contains a Spring Boot example project using MariaDB Database.
+This repository contains a Spring Boot example project with a small Back-End and Front-End parts.
 
 ### How to start:
 
