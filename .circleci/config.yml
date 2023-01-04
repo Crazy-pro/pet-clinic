@@ -30,8 +30,6 @@ jobs:
             # Fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: mvn install -DskipTests
-
       - run: mvn dependency:go-offline
 
       - save_cache:
@@ -40,7 +38,7 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # Run tests! And gen code coverage
-      - run: mvn integration-test clean test jacocoTestReport
+      - run: mvn integration-test cobertura:cobertura
 
       - run:
           name: Save test results
