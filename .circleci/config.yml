@@ -7,12 +7,10 @@ jobs:
   build:
     docker:
       - image: cimg/openjdk:11.0
-        environment:
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_DB: pet_clinic
-          MYSQL_USER: root
-          MYSQL_PASSWORD: admin
       - image: cimg/mysql:8.0
+        environment:
+          MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
     steps:
       - checkout
       - run:
