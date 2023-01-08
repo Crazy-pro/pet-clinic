@@ -1,9 +1,7 @@
 ### Pet Clinic
-
 This repository contains a Spring Boot example project with a small Back-End and Front-End parts.
 
 ### How to start:
-
 1. Install and run any IDE for working with Java.
 2. Install the latest version of docker if you still haven't done it.
 3. Run needed App in Docker Container or just use the App installed on your Device.
@@ -12,7 +10,6 @@ This repository contains a Spring Boot example project with a small Back-End and
     - http://localhost:8080/
 
 ### Technologies:
-
 - Programming language: Java 11;
 - Frameworks:
     - Spring (Boot, Core, Data, WebMVC, Test, Actuator);
@@ -21,7 +18,7 @@ This repository contains a Spring Boot example project with a small Back-End and
 - Databases:
     - MySQL, MariaDB.
 - Tools: JUnit, Mockito, Lombok, Postman, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
-- Others: GitHub, HTML, CSS, ThymeLeaf.
+- Others: GitHub, CircleCI, CodeCov, HTML, CSS, ThymeLeaf.
 
-[![CircleCI](https://app.circleci.com/pipelines/github/Crazy-pro/pet-clinic.svg?style=svg)](https://app.circleci.com/pipelines/github/Crazy-pro/pet-clinic)
-[![CodeCov](https://codecov.io/pipelines/github/Crazy-pro/pet-clinic/branch/master/graph/badge.svg)](https://codecov.io/pipelines/github/Crazy-pro/pet-clinic)
+[![CircleCI](https://app.circleci.com/gh/Crazy-pro/pet-clinic.svg?style=svg)](https://app.circleci.com/gh/Crazy-pro/pet-clinic)
+[![CodeCov](https://codecov.io/gh/Crazy-pro/pet-clinic/branch/master/graph/badge.svg)](https://codecov.io/gh/Crazy-pro/pet-clinic)
