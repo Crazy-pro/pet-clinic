@@ -7,16 +7,15 @@ jobs:
   build:
     docker:
       - image: cimg/openjdk:18.0.2
+        environment:
+          DB_ROOT_USER: root
+          DB_URL: jdbc:mysql://localhost:3306/pet_clinic
+          DB_DRIVER: com.mysql.jdbc.Driver
+          DB_PASS: ""
       - image: cimg/mysql:8.0
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DB: pet_clinic
-          MYSQL_USER: mysql
-          MYSQL_PASSWORD: admin
     steps:
       - checkout
       - run:
