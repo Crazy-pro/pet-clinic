@@ -12,7 +12,7 @@ jobs:
           DB_URL: jdbc:mysql://localhost:3306/pet_clinic
           DB_DRIVER: com.mysql.cj.jdbc.Driver
           DB_PASS: ""
-      - image: cimg/mysql:8.0
+      - image: cimg/mysql:8.0.28
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: ""
