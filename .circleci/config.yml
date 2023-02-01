@@ -12,6 +12,8 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
         environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ROOT_PASSWORD: ''
           MYSQL_DB: pet_clinic
           MYSQL_USER: mysql
           MYSQL_PASSWORD: admin
