@@ -1,8 +1,9 @@
 ### Pet Clinic
 This repository contains a Spring Boot example project with a small Back-End and Front-End parts.
 
-### How to start:
 
+
+### How to start:
 1. Install and run any IDE for working with Java.
 2. Install the latest version of docker if you still haven't done it.
 3. Chose MySQL or MariaDB profile in resources package (Default MySQL).
@@ -13,6 +14,8 @@ This repository contains a Spring Boot example project with a small Back-End and
     - docker run --name mdb -p 3306:3306 -e MARIADB_USER=mariadb -e MARIADB_PASSWORD=admin -d mariadb
 5. Run the application and check end-points work using Postman using link below:
     - http://localhost:8080/
+
+
 
 ### Technologies:
 

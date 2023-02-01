@@ -9,11 +9,6 @@
     <description>Pet Clinic</description>
     <packaging>pom</packaging>
 
-    <modules>
-        <module>data</module>
-        <module>web</module>
-    </modules>
-
     <properties>
         <java.version>11</java.version>
         <jaxb.version>2.3.0</jaxb.version>
@@ -31,6 +26,11 @@
         <version>2.1.0.RELEASE</version>
         <relativePath/>
     </parent>
+
+    <modules>
+        <module>data</module>
+        <module>web</module>
+    </modules>
 
     <dependencies>
         <dependency>
