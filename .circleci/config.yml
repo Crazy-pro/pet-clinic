@@ -10,12 +10,12 @@ jobs:
         environment:
           DB_ROOT_USER: root
           DB_URL: jdbc:mysql://localhost:3306/pet_clinic
-          DB_DRIVER: com.mysql.jdbc.Driver
+          DB_DRIVER: com.mysql.cj.jdbc.Driver
           DB_PASS: ""
       - image: cimg/mysql:8.0
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ROOT_PASSWORD: ""
     steps:
       - checkout
       - run:
