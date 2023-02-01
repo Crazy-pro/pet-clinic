@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "specialities")
@@ -20,5 +19,11 @@ public class Speciality extends BaseEntity {
 
     @Column(name = "description")
     private String description;
+
+    @Builder
+    public Speciality(Long id, String description) {
+        super(id);
+        this.description = description;
+    }
 
 }
