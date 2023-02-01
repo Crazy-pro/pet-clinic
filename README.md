@@ -8,24 +8,23 @@ This repository contains a Spring Boot example project with a small Back-End and
 2. Install the latest version of docker if you still haven't done it.
 3. Chose MySQL or MariaDB profile in resources package (Default MySQL).
 4. Run MySQL or MariaDB Docker Container or just use the PC client:
-    - docker pull mysql
-    - docker run --name mysqldb -p 3306:3306 -e MYSQL_USER=mysql -e MYSQL_PASSWORD=admin -d mysql
-    - docker pull mariadb
-    - docker run --name mdb -p 3306:3306 -e MARIADB_USER=mariadb -e MARIADB_PASSWORD=admin -d mariadb
+   - docker pull mysql
+   - docker run --name mysqldb -p 3306:3306 -e MYSQL_USER=mysql -e MYSQL_PASSWORD=admin -d mysql
+   - docker pull mariadb
+   - docker run --name mdb -p 3306:3306 -e MARIADB_USER=mariadb -e MARIADB_PASSWORD=admin -d mariadb
 5. Run the application and check end-points work using Postman using link below:
-    - http://localhost:8080/
+   - http://localhost:8080/
 
 
 
 ### Technologies:
-
 - Programming language: Java 11;
 - Frameworks:
-    - Spring (Boot, Core, Data, WebMVC, Test, Actuator);
-    - Hibernate.
+  - Spring (Boot, Core, Data, WebMVC, Test, Actuator);
+  - Hibernate.
 - IDE: IntelliJ IDEA;
 - Databases:
-    - MySQL, MariaDB.
+  - MySQL, MariaDB.
 - Tools: JUnit 5, Mockito, Lombok, Postman, Maven, Git, Docker, JDBC, JPA, JMS, HTTPs, XML, YAML, JSON;
 - Others: GitHub, CircleCI, CodeCov, SonarLint, SonarCloud, HTML, CSS, ThymeLeaf.
 
