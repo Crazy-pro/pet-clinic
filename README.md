@@ -1,5 +1,5 @@
 ### Pet Clinic
-This repository contains a Spring Boot example project with a small Back-End and Front-End parts.
+This repository contains an example of a multi-module Spring Boot project with Back-End and Front-End parts.
 
 
 
