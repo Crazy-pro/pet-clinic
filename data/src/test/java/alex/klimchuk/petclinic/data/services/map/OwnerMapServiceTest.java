@@ -4,6 +4,7 @@ import alex.klimchuk.petclinic.data.model.Owner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -51,6 +52,14 @@ public class OwnerMapServiceTest {
         Owner owner = ownerMapService.findByLastName("Max");
 
         assertNull(owner);
+    }
+
+    @Test
+    public void testFindAllByLastNameLike() {
+        List<Owner> owners = ownerMapService.findAllByLastNameLike(LAST_NAME);
+
+        assertNotNull(owners);
+        assertEquals(1, owners.size());
     }
 
     @Test
